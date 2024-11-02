@@ -13,16 +13,16 @@ import { MapContainer, TileLayer, Marker, Popup, CircleMarker } from 'react-leaf
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { renderToStaticMarkup } from "react-dom/server"
-import markerIcon from "../app/images/location_icon-2x.png"
+import markerIcon from "../app/images/location_icon.svg"
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+import markerShadow from '../app/images/marker-shadow.png';
 
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: "http://localhost:8000/location_icon.svg",
-  iconUrl: "http://localhost:8000/location_icon.svg",
-  shadowUrl: "http://localhost:8000/marker-shadow.png"
+  iconRetinaUrl: markerIcon.src,
+  iconUrl: markerIcon.src,
+  shadowUrl: markerShadow.src,
 });
 
 // Mock data (same as before)
